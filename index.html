@@ -20,19 +20,21 @@
 
     <!-- HEADER -->
     <div class="header-grid">
-        <div class="header-doodle"><img src="doodle.jpeg"></div>
+        <div class="header-doodle"><img src="doodle.jpeg" alt="doodle"></div>
 
         <div class="header-text">
             <div class="newyear-text">Happy New Year</div>
             <div class="year-text">2026</div>
         </div>
 
-        <div class="header-doodle"><img src="doodle.jpeg"></div>
+        <div class="header-doodle"><img src="doodle.jpeg" alt="doodle"></div>
     </div>
 
-    <!-- PHOTO -->
-    <div class="photo-box breathe-photo">
-        <img src="her.png">
+    <!-- PHOTO WITH GLOW -->
+    <div class="photo-glow">
+        <div class="photo-box breathe-photo">
+            <img src="her.png" alt="her">
+        </div>
     </div>
 
     <h2>To the one who makes my world beautiful ❤️</h2>
@@ -71,19 +73,22 @@ const celebrateBtn = document.getElementById("celebrateBtn");
 const closing = document.querySelector(".closing");
 const from = document.querySelector(".from");
 
+/* TYPEWRITER TEXT */
 const text =
-"I just wanted you to know how much you mean to me. " +
-"Your presence makes things better, and having you around feels really nice.";
+"As this new year begins, I wish that everything works out beautifully for you. " +
+"May this year bring you all the things you hope for and all the happiness you deserve. " +
+"I hope you stay smiling, stay positive, and always believe in yourself, even on tough days. " +
+"Aur haan, thandi bohot hai aaj-kal… apna dhyaan rakhna 🧣❄️🤍";
 
 let i = 0;
 
-/* TYPEWRITER */
+/* TYPEWRITER EFFECT */
 function typeEffect() {
     if (i < text.length) {
         textEl.innerHTML += text.charAt(i++);
         setTimeout(typeEffect, 40);
     } else {
-        setTimeout(() => celebrateBtn.classList.remove("hidden"), 600);
+        setTimeout(() => celebrateBtn.classList.remove("hidden"), 700);
     }
 }
 
@@ -109,16 +114,14 @@ function fadeInMusic() {
     }, 100);
 }
 
-/* 🚀 EXTREME DOODLE CELEBRATION */
+/* DOODLE CELEBRATION */
 function startCelebration() {
     celebrateBtn.classList.add("hidden");
 
-    // WAVE 1 – BIG BURST
     for (let i = 0; i < 120; i++) {
         createCelebrationDoodle(0);
     }
 
-    // WAVE 2 – FOLLOW-UP FLOW
     setTimeout(() => {
         for (let i = 0; i < 60; i++) {
             createCelebrationDoodle(300);
@@ -134,7 +137,7 @@ function createCelebrationDoodle(delay) {
     d.src = "doodle.jpeg";
     d.className = "celebrate-doodle";
 
-    d.style.left = Math.random() * 110 - 5 + "vw"; // wider spread
+    d.style.left = Math.random() * 110 - 5 + "vw";
     d.style.top = "105vh";
     d.style.width = 16 + Math.random() * 34 + "px";
     d.style.animationDuration = 4 + Math.random() * 4 + "s";
@@ -144,7 +147,7 @@ function createCelebrationDoodle(delay) {
     setTimeout(() => d.remove(), 10000);
 }
 
-/* BACKGROUND FLOATING DOODLES (calm layer) */
+/* BACKGROUND FLOATING DOODLES */
 const bgBox = document.querySelector(".floating-doodles");
 for (let i = 0; i < 24; i++) {
     const d = document.createElement("img");
