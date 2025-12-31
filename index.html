@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Happy New Year 2026 ❤️</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,20 +24,20 @@
 
     <!-- HEADER -->
     <div class="header-grid">
-        <div class="header-doodle"><img src="doodle.jpeg" alt="doodle"></div>
+        <div class="header-doodle"><img src="doodle.jpeg"></div>
 
         <div class="header-text">
             <div class="newyear-text">Happy New Year</div>
             <div class="year-text">2026</div>
         </div>
 
-        <div class="header-doodle"><img src="doodle.jpeg" alt="doodle"></div>
+        <div class="header-doodle"><img src="doodle.jpeg"></div>
     </div>
 
     <!-- PHOTO WITH GLOW -->
     <div class="photo-glow">
         <div class="photo-box breathe-photo">
-            <img src="her.png" alt="her">
+            <img src="her.png">
         </div>
     </div>
 
@@ -48,10 +52,10 @@
         🎁 I have something to tell you ❤️
     </div>
 
-    <!-- MESSAGE -->
+    <!-- TYPEWRITER -->
     <p id="typewriter" class="hidden"></p>
 
-    <!-- TAP FOR CELEBRATION -->
+    <!-- TAP -->
     <div id="celebrateBtn" class="celebrate-btn hidden" onclick="startCelebration()">
         ✨ Tap here ✨
     </div>
@@ -61,7 +65,7 @@
     </p>
 
     <p class="from hidden">
-        — Janesh ❤️
+        — Jerry ❤️
     </p>
 
 </div>
@@ -73,7 +77,6 @@ const celebrateBtn = document.getElementById("celebrateBtn");
 const closing = document.querySelector(".closing");
 const from = document.querySelector(".from");
 
-/* TYPEWRITER TEXT */
 const text =
 "As this new year begins, I wish that everything works out beautifully for you. " +
 "May this year bring you all the things you hope for and all the happiness you deserve. " +
@@ -82,7 +85,6 @@ const text =
 
 let i = 0;
 
-/* TYPEWRITER EFFECT */
 function typeEffect() {
     if (i < text.length) {
         textEl.innerHTML += text.charAt(i++);
@@ -92,18 +94,15 @@ function typeEffect() {
     }
 }
 
-/* GIFT CLICK */
 function openGift() {
     music.volume = 0;
     music.play();
     fadeInMusic();
-
     document.querySelector(".gift-box").classList.add("opened");
     textEl.classList.remove("hidden");
     typeEffect();
 }
 
-/* MUSIC FADE IN */
 function fadeInMusic() {
     let v = 0;
     const fade = setInterval(() => {
@@ -114,35 +113,27 @@ function fadeInMusic() {
     }, 100);
 }
 
-/* DOODLE CELEBRATION */
 function startCelebration() {
     celebrateBtn.classList.add("hidden");
 
-    for (let i = 0; i < 120; i++) {
-        createCelebrationDoodle(0);
-    }
-
+    for (let i = 0; i < 120; i++) createDoodle(0);
     setTimeout(() => {
-        for (let i = 0; i < 60; i++) {
-            createCelebrationDoodle(300);
-        }
+        for (let i = 0; i < 60; i++) createDoodle(300);
     }, 400);
 
     setTimeout(() => closing.classList.remove("hidden"), 1600);
     setTimeout(() => from.classList.remove("hidden"), 2200);
 }
 
-function createCelebrationDoodle(delay) {
+function createDoodle(delay) {
     const d = document.createElement("img");
     d.src = "doodle.jpeg";
     d.className = "celebrate-doodle";
-
     d.style.left = Math.random() * 110 - 5 + "vw";
     d.style.top = "105vh";
     d.style.width = 16 + Math.random() * 34 + "px";
     d.style.animationDuration = 4 + Math.random() * 4 + "s";
     d.style.animationDelay = delay / 1000 + Math.random() * 0.5 + "s";
-
     document.body.appendChild(d);
     setTimeout(() => d.remove(), 10000);
 }
@@ -162,4 +153,3 @@ for (let i = 0; i < 24; i++) {
 
 </body>
 </html>
-
